@@ -61,6 +61,10 @@ public class ElasticSearchMetric {
         this.json.put("ThreadName",        this.sampleResult.getThreadName());
         this.json.put("URL",               this.sampleResult.getURL());
         this.json.put("ResponseCode",      this.sampleResult.getResponseCode());
+        this.json.put("ResponseMessage",   this.sampleResult.getResponseMessage());
+        this.json.put("Label",   		   this.sampleResult.getSampleLabel());
+        this.json.put("Success",      	   this.sampleResult.isSuccessful());
+        
         this.json.put("StartTime",         sdf.format(new Date(this.sampleResult.getStartTime())));
         this.json.put("EndTime",           sdf.format(new Date(this.sampleResult.getEndTime())));
         this.json.put("Timestamp",         sdf.format(new Date(this.sampleResult.getTimeStamp())));
@@ -132,7 +136,7 @@ public class ElasticSearchMetric {
 
         elapsedTime = getElapsedTime(false);
         if(elapsedTime != null)
-            this.json.put("ElapsedTime", sdf.format(elapsedTime));
+            this.json.put("Elapsed", sdf.format(elapsedTime));
     }
 
     /**
