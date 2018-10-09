@@ -134,9 +134,7 @@ public class ElasticSearchMetric {
                 this.json.put("ElapsedTimeComparison", sdf.format(elapsedTime));
         }
 
-        elapsedTime = getElapsedTime(false);
-        if(elapsedTime != null)
-            this.json.put("Elapsed", sdf.format(elapsedTime));
+        this.json.put("Elapsed", System.currentTimeMillis() - JMeterContextService.getTestStartTime());
     }
 
     /**
